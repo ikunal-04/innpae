@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/config/site-config";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +49,19 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <div className="absolute inset-0 z-0" >
+              <Image
+                src="/new-bg.jpg"
+                alt="Background"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/20"></div>
+            </div>
+            <div className="relative z-10">
+              {children}
+            </div>
           </ThemeProvider>
           <Analytics />
           <Toaster />

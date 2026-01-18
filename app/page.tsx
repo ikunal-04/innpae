@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link";
 import { toast } from "sonner";
+import { Loader } from "lucide-react";
 
 interface GeneratedProject {
   projectId: string;
@@ -173,10 +174,19 @@ export default function Home() {
 
   if (!isLoaded) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-pink-50">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+      <div className="min-h-screen relative overflow-hidden flex items-center justify-center bg-black">
+        <div className="absolute inset-0 z-0" >
+        <Image
+          src="/new-bg.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
+        <div className="relative z-10 text-center">
+          <Loader className="animate-spin rounded-full h-12 w-12 mx-auto"></Loader>
         </div>
       </div>
     );
@@ -191,17 +201,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 z-0" >
-        <Image
-          src="/new-bg.jpg"
-          alt="Background"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/20"></div>
-      </div>
-
       <header className="relative z-10 flex justify-between items-center p-6 text-white">
         <Link href="/">
           <div className="flex items-center gap-2">
