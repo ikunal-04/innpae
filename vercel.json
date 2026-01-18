@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
+  "buildCommand": "bun run build",
+  "installCommand": "bun install",
   "framework": "nextjs",
   "functions": {
     "app/api/**/*.ts": {
@@ -10,4 +10,4 @@
   "env": {
     "PRISMA_GENERATE_DATAPROXY": "true"
   }
-} 
+}
